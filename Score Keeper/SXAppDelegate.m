@@ -7,6 +7,7 @@
 //
 
 #import "SXAppDelegate.h"
+#import "SXViewController.h"
 
 @implementation SXAppDelegate
 
@@ -16,6 +17,22 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    // Instantiate an SXViewController
+    
+    SXViewController *viewController = [[SXViewController alloc] init];
+    
+    // Instantiate a UINavigationController
+    
+    UINavigationController *navigation = [[UINavigationController alloc]initWithRootViewController:viewController];
+
+    // Name the viewController so the Navigation Controller will display it as a title
+    
+    self.window.rootViewController = navigation;
+    
+    // 
+    
+    
     return YES;
 }
 

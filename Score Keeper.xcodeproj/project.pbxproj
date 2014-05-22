@@ -19,6 +19,7 @@
 		3C48C815192D83D2003D7887 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C48C7FD192D83D2003D7887 /* UIKit.framework */; };
 		3C48C81D192D83D2003D7887 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3C48C81B192D83D2003D7887 /* InfoPlist.strings */; };
 		3C48C81F192D83D2003D7887 /* Score_KeeperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C48C81E192D83D2003D7887 /* Score_KeeperTests.m */; };
+		3C48C82A192D844B003D7887 /* SXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C48C829192D844B003D7887 /* SXViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		3C48C81A192D83D2003D7887 /* Score KeeperTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Score KeeperTests-Info.plist"; sourceTree = "<group>"; };
 		3C48C81C192D83D2003D7887 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3C48C81E192D83D2003D7887 /* Score_KeeperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Score_KeeperTests.m; sourceTree = "<group>"; };
+		3C48C828192D844B003D7887 /* SXViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXViewController.h; sourceTree = "<group>"; };
+		3C48C829192D844B003D7887 /* SXViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,8 @@
 		3C48C7FF192D83D2003D7887 /* Score Keeper */ = {
 			isa = PBXGroup;
 			children = (
+				3C48C828192D844B003D7887 /* SXViewController.h */,
+				3C48C829192D844B003D7887 /* SXViewController.m */,
 				3C48C808192D83D2003D7887 /* SXAppDelegate.h */,
 				3C48C809192D83D2003D7887 /* SXAppDelegate.m */,
 				3C48C80B192D83D2003D7887 /* Images.xcassets */,
@@ -240,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C48C82A192D844B003D7887 /* SXViewController.m in Sources */,
 				3C48C806192D83D2003D7887 /* main.m in Sources */,
 				3C48C80A192D83D2003D7887 /* SXAppDelegate.m in Sources */,
 			);

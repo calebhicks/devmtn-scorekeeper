@@ -10,9 +10,21 @@
 
 @interface SXViewController ()
 
+@property (nonatomic, strong) NSMutableArray *scoreCells;
+@property (nonatomic, strong) NSMutableArray *scoreFields;
+@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) UIButton *addPlayer;
+@property (nonatomic, strong) UIButton *removePlayer;
+
 @end
 
 @implementation SXViewController
+
+static CGFloat scoreHeight = 90;
+static CGFloat nameFieldWidth = 90;
+static CGFloat scoreFieldWidth = 60;
+static CGFloat stepperButtonWidth = 90;
+static CGFloat buttonWidth = 130;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,7 +39,102 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.title = @"Score Keeper";
+    self.scoreCells = [NSMutableArray new];
+    self.scoreFields = [NSMutableArray new];
+    
+    
+    // Create, size, initialize and place the scrollview
+    self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    self.scrollView.backgroundColor = [UIColor redColor];
+    [self.view addSubview:self.scrollView];
+    
+    
+    // Create first instance for initial cell
+    
+    [self createPlayerScoreCell];
+    
+    
+    // Create the Add Player UIButton with text color Blue
+    
+    self.addPlayer = [[UIButton alloc] initWithFrame:CGRectMake(20, 300, buttonWidth, 90)];
+    NSString *addPlayerTitleText = @"Add Player";
+    [self.addPlayer setTitle:addPlayerTitleText forState:UIControlStateNormal];
+    [self.addPlayer addTarget:self action:@selector(createPlayerScoreCell) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.addPlayer];
+    
+    
+    // Create the Remove Player UIButton with text color Blue
+    
+    self.removePlayer = [[UIButton alloc] initWithFrame:CGRectMake(160, 300, buttonWidth, 90)];
+    NSString *removePlayerTitleText = @"Remove Player";
+    [self.removePlayer setTitle:removePlayerTitleText forState:UIControlStateNormal];
+    [self.removePlayer addTarget:self action:@selector(removePlayerScoreCell) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.removePlayer];
+    
 }
+
+- (void)createPlayerScoreCell{
+    
+    NSInteger trackNumberOfCells = [self.scoreCells count];
+    
+    // Create a View for everything to fit inside of
+    
+    UIView *cellView = [[UIView alloc] initWithFrame: CGRectMake(0, scoreHeight*trackNumberOfCells, self.view.frame.size.width, scoreHeight)];
+    cellView.backgroundColor = [UIColor purpleColor];
+    
+    UITextField *playerName = [[UITextField alloc] initWithFrame:CGRectMake(10, 0, nameFieldWidth, scoreHeight)];
+    playerName.placeholder =  @"Name";
+    [cellView addSubview:playerName];
+    
+    
+    // Create a UITextField for the points
+    
+    UITextField *playerScore = [[UITextField alloc] initWithFrame:CGRectMake(110, 0, scoreFieldWidth, scoreHeight)];
+    playerScore.placeholder =  @"0";
+    
+    [cellView addSubview:playerScore];
+    
+    // Create the UIStepper (minus plus buttons)
+    
+    UIStepper *subOrAddScore = [[UIStepper alloc] initWithFrame:CGRectMake(200, 30, stepperButtonWidth, scoreHeight)];
+    
+    [cellView addSubview:subOrAddScore];
+    
+    
+    // Create a border view for the bottom
+    
+    UIView *border = [[UIView alloc] initWithFrame:CGRectMake(0, scoreHeight - 1, self.view.frame.size.width, 1)];
+    border.backgroundColor = [UIColor lightGrayColor];
+    [cellView addSubview:border];
+    
+    // Add to the NSMutableArray scoreCells
+    [self.scoreCells addObject:cellView];
+    
+    // Display the cellView
+    [self.scrollView addSubview:cellView];
+    
+}
+
+- (void)removePlayerScoreCell{
+    
+    [self.scoreCells.lastObject removeFromSuperview];
+    
+}
+
+- (void)increasePlayerScore{
+    
+    
+    
+}
+
+- (void)decreasePlayerScore{
+    
+    
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {

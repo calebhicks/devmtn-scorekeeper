@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F819817F-1B30-40F0-BB38-F5237B3D3288</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Score Keeper</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>4E51B3F0-1D58-450D-B7E4-751D877CA7BD</key>
+		<string>https://github.com/calebhicks/devmtn-scorekeeper.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Score Keeper.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>4E51B3F0-1D58-450D-B7E4-751D877CA7BD</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/calebhicks/devmtn-scorekeeper.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>4E51B3F0-1D58-450D-B7E4-751D877CA7BD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4E51B3F0-1D58-450D-B7E4-751D877CA7BD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Score Keeper</string>
+		</dict>
+	</array>
+</dict>
+</plist>
