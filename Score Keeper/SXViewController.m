@@ -46,32 +46,14 @@ static CGFloat buttonWidth = 130;
     
     
     // Create, size, initialize and place the scrollview
-    self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-    self.scrollView.backgroundColor = [UIColor redColor];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height*2)];
     [self.view addSubview:self.scrollView];
     
     
     // Create first instance for initial cell
-    
     [self createPlayerScoreCell];
-    
-    
-    // Create the Add Player UIButton with text color Blue
-    
-    self.addPlayer = [[UIButton alloc] initWithFrame:CGRectMake(20, 300, buttonWidth, 90)];
-    NSString *addPlayerTitleText = @"Add Player";
-    [self.addPlayer setTitle:addPlayerTitleText forState:UIControlStateNormal];
-    [self.addPlayer addTarget:self action:@selector(createPlayerScoreCell) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.addPlayer];
-    
-    
-    // Create the Remove Player UIButton with text color Blue
-    
-    self.removePlayer = [[UIButton alloc] initWithFrame:CGRectMake(160, 300, buttonWidth, 90)];
-    NSString *removePlayerTitleText = @"Remove Player";
-    [self.removePlayer setTitle:removePlayerTitleText forState:UIControlStateNormal];
-    [self.removePlayer addTarget:self action:@selector(removePlayerScoreCell) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.removePlayer];
+
+    [self updateButtons];
     
 }
 
@@ -82,7 +64,7 @@ static CGFloat buttonWidth = 130;
     // Create a View for everything to fit inside of
     
     UIView *cellView = [[UIView alloc] initWithFrame: CGRectMake(0, scoreHeight*trackNumberOfCells, self.view.frame.size.width, scoreHeight)];
-    cellView.backgroundColor = [UIColor purpleColor];
+    //cellView.backgroundColor = [UIColor purpleColor];
     
     UITextField *playerName = [[UITextField alloc] initWithFrame:CGRectMake(10, 0, nameFieldWidth, scoreHeight)];
     playerName.placeholder =  @"Name";
@@ -115,17 +97,22 @@ static CGFloat buttonWidth = 130;
     // Display the cellView
     [self.scrollView addSubview:cellView];
     
+    // Move the buttons to their new spot
+    [self updateButtons];
+    
 }
 
 - (void)removePlayerScoreCell{
     
     [self.scoreCells.lastObject removeFromSuperview];
+    [self.scoreCells removeLastObject];
+    [self updateButtons];
     
 }
 
 - (void)increasePlayerScore{
     
-    
+
     
 }
 
@@ -133,6 +120,37 @@ static CGFloat buttonWidth = 130;
     
     
     
+}
+
+- (void)updateScrollViewSize{
+    
+    //self.scrollView = [self.scoreCells count];
+}
+
+- (void)updateButtons{
+    
+    // Remove current buttons
+    [self.addPlayer removeFromSuperview];
+    [self.removePlayer removeFromSuperview];
+    
+    // Create the Add Player UIButton with text color Blue
+    
+    self.addPlayer = [[UIButton alloc] initWithFrame:CGRectMake(20, ([self.scoreCells count]*scoreHeight) + 60, buttonWidth, 45)];
+    NSString *addPlayerTitleText = @"Add Player";
+    [self.addPlayer setTitle:addPlayerTitleText forState:UIControlStateNormal];
+    [self.addPlayer setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.addPlayer addTarget:self action:@selector(createPlayerScoreCell) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.addPlayer];
+    
+    
+    // Create the Remove Player UIButton with text color Blue
+    
+    self.removePlayer = [[UIButton alloc] initWithFrame:CGRectMake(160, ([self.scoreCells count]*scoreHeight) + 60, buttonWidth, 45)];
+    NSString *removePlayerTitleText = @"Remove Player";
+    [self.removePlayer setTitle:removePlayerTitleText forState:UIControlStateNormal];
+    [self.removePlayer setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.removePlayer addTarget:self action:@selector(removePlayerScoreCell) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.removePlayer];
 }
 
 
